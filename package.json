@@ -1,0 +1,19 @@
+{
+  "name": "learningAngular",
+  "version": "1.0.0",
+  "description": "Learning angular",
+  "main": "app.js",
+  "scripts": {
+    "dev": "gulp dev"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "Daniel Dughila",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.7.6",
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "learningAngular",
+  "version": "1.0.0",
+  "authors": [
+    "Daniel Dughila <danieldughila@gmail.com>"
+  ],
+  "description": "Learning angular",
+  "main": "index.html",
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.2.28"
+  }
+}
