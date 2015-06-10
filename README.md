@@ -1,2 +1,2 @@
 # ngApp
-Testing modern JavaScript principles.
+Testing modern JavaScript principles
