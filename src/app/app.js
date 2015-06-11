@@ -1,14 +1,8 @@
-// TODO Fix this function.
+var country = require('./country/main.js');
+var state = require('./state/main.js');
 
-function sayHello(name) {
-    return this.sayHi(name);
+function hola() {
+    return 'Hola!';
 }
 
-var obj = {
-    sayHi: function (name) {
-        return 'Hi ' + name;
-    }
-}
-
-
-console.log(sayHello.bind(obj)('Dany'));
+hola();

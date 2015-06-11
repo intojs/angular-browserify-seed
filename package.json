@@ -11,9 +11,23 @@
   ],
   "author": "Daniel Dughila",
   "license": "ISC",
+  "browser": {
+    "angular": "./bower_components/angular/angular.min.js"
+  },
+  "browserify-shim": {
+    "angular": "angular"
+  },
   "dependencies": {
     "browser-sync": "^2.7.6",
+    "browserify": "^10.2.4",
+    "browserify-shim": "^3.8.8",
+    "exorcist": "^0.4.0",
     "gulp": "^3.9.0",
-    "gulp-less": "^3.0.3"
+    "gulp-buffer": "0.0.2",
+    "gulp-less": "^3.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
