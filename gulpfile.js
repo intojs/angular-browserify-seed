@@ -1,67 +1,95 @@
 var gulp = require('gulp'),
-    less = require('gulp-less'),
-    browserSync = require('browser-sync'),
-    reload = browserSync.reload,
-    browserify = require('browserify'),
-    browserifyShim = require('browserify-shim'),
-    exorcist = require('exorcist'),
-    buffer = require('vinyl-buffer'),
-    source = require('vinyl-source-stream'),
-    uglify = require('gulp-uglify');
+    browserSync = require('browser-sync');
 
-var base = 'src/';
+/**
+ *  --- Settings --- 
+ */
 
-gulp.task('less', function () {
-    return gulp.src(base+'less/main.less')
-        .pipe(less())
-        .pipe(gulp.dest(base+'css'))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('browserify-libs', function() {
-
-    var libs = [
+var tasksPath = './gulp/tasks',
+    basePath = './src',
+    distPath = './dist',
+    libs = [
         'angular'
     ];
 
-    var b = browserify();
+/**
+ *  --- Tasks --- 
+ */
 
-    libs.forEach(function(lib) {
-        b.require(lib);
-    });
-
-    return b.bundle()
-        .pipe(source('vendor.js'))
-        .pipe(buffer())
-        .pipe(uglify())
-        .pipe(gulp.dest(base));
+require(tasksPath+'/browserSync.js')({
+    'baseDir': basePath,
+    'port': 4000,
+    'browser': 'google chrome'
 });
 
-gulp.task('browserify', function () {
-    return browserify({
-            debug: true
-        })
-        .add(base+'app/app.js')
-        .bundle()
-        // .pipe(exorcist(base+'bundle.js.map'))
-        // .pipe(exorcist('bundle.js.map'))
-        .pipe(source('bundle.js'))
-        .pipe(gulp.dest(base));
+require(tasksPath+'/browserify.bundle.dev.js')({
+    'entries': [basePath+'/app/app.js'],
+    'excludeLibs': libs,
+    'source': 'bundle.js',
+    'dest': basePath
 });
 
-gulp.task('dev', ['browserify-libs', 'browserify', 'less'], function() {
-    browserSync({
-        server: {
-            baseDir: 'src',
-            routes: {
-				'/bower_components': 'bower_components'
-			}
-        },
-        port: 4000,
-        browser: "google chrome"
-    });
+require(tasksPath+'/browserify.bundle.prod.js')({
+    'entries': [basePath+'/app/app.js'],
+    'excludeLibs': libs,
+    'source': 'bundle.js',
+    'dest': distPath
+});
+
+require(tasksPath+'/browserify.vendor.dev.js')({
+    'libs': libs,
+    'source': 'vendor.js',
+    'dest': basePath
+});
+
+require(tasksPath+'/browserify.vendor.prod.js')({
+    'libs': libs,
+    'source': 'vendor.js',
+    'dest': distPath
+});
+
+require(tasksPath+'/less.js')({
+    'src': basePath+'/less/main.less',
+    'dest': basePath+'/css'
+});
+
+require(tasksPath+'/css.js')({
+    'src': basePath+'/css/**/*.css',
+    'dest': distPath+'/css'
+});
+
+require(tasksPath+'/html.js')({
+    'src': basePath+'/index.html',
+    'dest': distPath
+});
+
+/**
+ *  --- Dev --- 
+ */
+
+gulp.task('dev', ['browserifyVendorDev', 'browserifyBundleDev', 'less', 'browserSync'], function() {
     
-    gulp.watch(base+'index.html', reload);
-    gulp.watch(base+'less/main.less', ['less']);
-    gulp.watch(base+'app/**/*.js', ['browserify', reload]);
+    gulp.watch(basePath+'/**/*.html', browserSync.reload);
+    
+    gulp.watch(basePath+'/less/main.less', ['less']);
+
+    gulp.watch([
+        basePath+'/css/**/*.css',
+        '!'+basePath+'/css/main.css'
+    ], function(ev) {
+        gulp.src(ev.path, {read: false})
+            .pipe(browserSync.stream());
+    });
 });
+
+/**
+ *  --- Test --- 
+ */
+
+gulp.task('test', function() {});
+
+/**
+ *  --- Build --- 
+ */
+
+gulp.task('build', ['html', 'browserifyVendorProd', 'browserifyBundleProd', 'less', 'css']);

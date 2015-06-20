@@ -4,39 +4,41 @@
   "description": "Learning angular",
   "main": "app.js",
   "scripts": {
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "build": "gulp build"
   },
   "keywords": [
     "angular"
   ],
   "author": "Daniel Dughila",
   "license": "ISC",
-
   "browserify": {
     "transform": [
-        "browserify-shim"
+      "browserify-shim"
     ]
   },
-
   "browser": {
     "angular": "./bower_components/angular/angular.js"
   },
-
   "browserify-shim": {
     "angular": {
       "exports": "angular"
     }
   },
-  
   "dependencies": {
     "browser-sync": "^2.7.6",
     "browserify": "^10.2.4",
     "browserify-shim": "^3.8.9",
-    "exorcist": "^0.4.0",
     "gulp": "^3.9.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-changed": "^1.2.1",
     "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.1.6",
+    "gulp-minify-html": "^1.0.3",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.2"
   }
 }
