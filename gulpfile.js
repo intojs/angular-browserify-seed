@@ -73,7 +73,7 @@ gulp.task('dev', ['browserifyVendorDev', 'browserifyBundleDev', 'less', 'browser
     
     gulp.watch(basePath+'/less/main.less', ['less']);
 
-    gulp.watch([
+    gulp.watch([ 
         basePath+'/css/**/*.css',
         '!'+basePath+'/css/main.css'
     ], function(ev) {
