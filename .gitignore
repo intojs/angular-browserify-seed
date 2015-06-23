@@ -1,7 +1,9 @@
 .idea
+.settings
 bower_components
 node_modules
 npm-debug.log
 
 src/css/main.css
 src/bundle.js
+src/bundle.js.map
