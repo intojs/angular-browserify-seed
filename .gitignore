@@ -6,4 +6,5 @@ npm-debug.log
 
 src/css/main.css
 src/bundle.js
-src/bundle.js.map
+src/vendor.js
+dist

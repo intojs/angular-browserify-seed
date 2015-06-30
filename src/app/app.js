@@ -1,10 +1,12 @@
-var country = require('./country/main.js');
-var state = require('./state/main.js');
-// var angular = require('angular');
-function hola() {
-    return 'Hola!';
-}
+'use strict';
 
-console.log(angular)
+require('jquery');
 
-hola();
+require('angular');
+
+angular.module('app',  [
+	require('angular-route'),
+	require('./templates').name,
+	require('./sections/home').name,
+	require('./sections/about').name
+]);

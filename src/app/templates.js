@@ -1,0 +1,3 @@
+'use strict'; module.exports = angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("sections/about/about.directive.tpl.html","{{about}}<div id=jquery-test>I am the directive test</div>");
+$templateCache.put("sections/about/about.tpl.html","<h1>Welcome to the about me page</h1><h2>Yey!</h2><about-directive></about-directive>");
+$templateCache.put("sections/home/home.tpl.html","<h1>{{sayHello}} dany</h1><a ng-href=#/about>About</a>");}]);
