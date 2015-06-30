@@ -14,17 +14,10 @@ module.exports = function(opts) {
 	        b.require(lib);
 	    });
 
-<<<<<<< HEAD
 	    return 	b
 	    	.bundle()
 	        .pipe(source(opts.source))
 	        .pipe(buffer())
-=======
-	    return b.bundle()
-	        .pipe(source(opts.source))
-	        .pipe(buffer())
-	        .pipe(uglify())
->>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
 	        .pipe(gulp.dest(opts.dest));
 	});
 };

@@ -14,12 +14,8 @@ module.exports = function(opts) {
 	        b.require(lib);
 	    });
 
-<<<<<<< HEAD
 	    return 	b
 	    	.bundle()
-=======
-	    return b.bundle()
->>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
 	        .pipe(source(opts.source))
 	        .pipe(buffer())
 	        .pipe(uglify())
