@@ -9,9 +9,13 @@ var tasksPath = './gulp/tasks',
     basePath = './src',
     distPath = './dist',
     libs = [
+<<<<<<< HEAD
         'angular',
         'angular-route',
         'jquery'
+=======
+        'angular'
+>>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
     ];
 
 /**
@@ -65,20 +69,29 @@ require(tasksPath+'/html.js')({
     'dest': distPath
 });
 
+<<<<<<< HEAD
 require(tasksPath+'/templateCache.js')({
     'src': basePath+'/app/**/*.tpl.html',
     'dest': basePath+'/app'
 });
 
+=======
+>>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
 /**
  *  --- Dev --- 
  */
 
+<<<<<<< HEAD
 gulp.task('dev', ['templateCache', 'browserifyVendorDev', 'browserifyBundleDev', 'less', 'browserSync'], function() {
     
     gulp.watch(basePath+'/index.html', browserSync.reload);
     
     gulp.watch(basePath+'/**/*.tpl.html', ['templateCache']);
+=======
+gulp.task('dev', ['browserifyVendorDev', 'browserifyBundleDev', 'less', 'browserSync'], function() {
+    
+    gulp.watch(basePath+'/**/*.html', browserSync.reload);
+>>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
     
     gulp.watch(basePath+'/less/main.less', ['less']);
 
@@ -86,9 +99,14 @@ gulp.task('dev', ['templateCache', 'browserifyVendorDev', 'browserifyBundleDev',
         basePath+'/css/**/*.css',
         '!'+basePath+'/css/main.css'
     ], function(ev) {
+<<<<<<< HEAD
         gulp.src(ev.path,{
             'read': false
         }).pipe(browserSync.stream());
+=======
+        gulp.src(ev.path, {read: false})
+            .pipe(browserSync.stream());
+>>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
     });
 });
 
@@ -96,7 +114,11 @@ gulp.task('dev', ['templateCache', 'browserifyVendorDev', 'browserifyBundleDev',
  *  --- Test --- 
  */
 
+<<<<<<< HEAD
 gulp.task('test', ['templateCache']);
+=======
+gulp.task('test', function() {});
+>>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
 
 /**
  *  --- Build --- 

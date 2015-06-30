@@ -4,9 +4,14 @@ module.exports = function(opts) {
 	 	browserify = require('browserify'),
 		browserSync = require('browser-sync'),
 		source = require('vinyl-source-stream'),
+<<<<<<< HEAD
 		watchify = require('watchify'),
 		babelify = require("babelify");
 		
+=======
+		watchify = require('watchify');
+
+>>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
 	gulp.task('browserifyBundleDev', function () {
 
 	    var b = browserify({
@@ -24,12 +29,17 @@ module.exports = function(opts) {
 	    var w = watchify(b);
 
 	    w.on('update', function () {
+<<<<<<< HEAD
 	        w.transform(babelify)
 	        	.bundle()
+=======
+	        w.bundle()
+>>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
 	            .pipe(source(opts.source))
 	            .pipe(gulp.dest(opts.dest))
 	            .pipe(browserSync.reload({
 	                stream: true
+<<<<<<< HEAD
 	            }));
 	    })
 
@@ -37,5 +47,13 @@ module.exports = function(opts) {
 		    		.bundle()
 		        	.pipe(source(opts.source))
 		        	.pipe(gulp.dest(opts.dest));
+=======
+	            }))
+	    })
+
+	    return b.bundle()
+	        .pipe(source(opts.source))
+	        .pipe(gulp.dest(opts.dest));
+>>>>>>> 475b8389bf826edc79f5545029f17e4e59108c68
 	});
 };
