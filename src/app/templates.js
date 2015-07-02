@@ -1,3 +1,6 @@
-'use strict'; module.exports = angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("sections/about/about.directive.tpl.html","{{about}}<div id=jquery-test>I am the directive test</div>");
+'use strict'; module.exports = angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("sections/connect/connect.tpl.html","<h1>Ai facut cea mai buna alegere!</h1><h2>Ne trebuie cateva detalii pentru a te conecta cu medicul ales.</h2><login-form></login-form><br><signup-form></signup-form>");
+$templateCache.put("sections/home/home.tpl.html","<div id=home><h1>Esti conectat deja cu un medic?</h1><a title=Autentifica-te href=javascript:void(0)>Autentifica-te</a><h2>Conecteaza-te cu medicul tau!</h2><div class=entity ng-repeat=\"entity in homeCtrl.entities\">{{entity.name}}<br>{{entity.city}}<br><a title=Conecteaza-te href=javascript:void(0) ng-click=homeCtrl.connectToEntity(entity.id)>Conecteaza-te</a></div></div>");
+$templateCache.put("sections/about/about.directive.tpl.html","{{about}}<div id=jquery-test>I am the directive test</div>");
 $templateCache.put("sections/about/about.tpl.html","<h1>Welcome to the about me page</h1><h2>Yey!</h2><about-directive></about-directive>");
-$templateCache.put("sections/home/home.tpl.html","<h1>{{sayHello}} dany</h1><a ng-href=#/about>About</a>");}]);
+$templateCache.put("sections/auth/components/login/login.tpl.html","Formular de autentificare");
+$templateCache.put("sections/auth/components/signup/signup.tpl.html","formular de signup");}]);

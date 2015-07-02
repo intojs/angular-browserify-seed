@@ -11,6 +11,7 @@ var tasksPath = './gulp/tasks',
     libs = [
         'angular',
         'angular-route',
+        'angular-resource',
         'jquery'
     ];
 
@@ -80,7 +81,7 @@ gulp.task('dev', ['templateCache', 'browserifyVendorDev', 'browserifyBundleDev',
     
     gulp.watch(basePath+'/**/*.tpl.html', ['templateCache']);
     
-    gulp.watch(basePath+'/less/main.less', ['less']);
+    gulp.watch(basePath+'/**/*.less', ['less']);
 
     gulp.watch([ 
         basePath+'/css/**/*.css',

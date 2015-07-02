@@ -26,6 +26,7 @@
   "main": "./src/app/app.js",
   "dependencies": {
     "angular": "^1.4.1",
+    "angular-resource": "^1.4.1",
     "angular-route": "^1.4.1"
   },
   "devDependencies": {

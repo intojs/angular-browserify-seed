@@ -1,3 +1,16 @@
-<h1>{{sayHello}} dany</h1>
+<div id="home">
+	
+	<h1>Esti conectat deja cu un medic?</h1>
 
-<a ng-href="#/about">About</a>
+	<a title="Autentifica-te" href="javascript:void(0)">Autentifica-te</a>
+
+	<h2>Conecteaza-te cu medicul tau!</h2>
+
+	<div class="entity" ng-repeat="entity in homeCtrl.entities">
+		{{entity.name}}
+		<br />
+		{{entity.city}}
+		<br />
+		<a title="Conecteaza-te" href="javascript:void(0)" ng-click="homeCtrl.connectToEntity(entity.id)">Conecteaza-te</a>
+	</div>
+</div>
