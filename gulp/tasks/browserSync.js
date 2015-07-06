@@ -6,7 +6,10 @@ module.exports = function (opts) {
     gulp.task('browserSync', function() {
         browserSync({
             server: {
-                baseDir: opts.baseDir
+                baseDir: opts.baseDir,
+                routes: {
+                    "/bower_components": "bower_components"
+                }
             },
             port: opts.port,
             browser: opts.browser

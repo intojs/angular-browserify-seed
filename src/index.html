@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html ng-app="app">
 	<head>
-		<meta lang="en" charset="UTF-8" />
+		<meta lang="en" charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>NgApp</title>
+
+		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/custom.css">
 		<link rel="stylesheet" type="text/css" href="css/custom2.css">
@@ -11,7 +14,6 @@
 		<script type="text/javascript" src="bundle.js"></script>
 	</head>
 	<body ng-controller="AppCtrl">
-	
-		<div class="container-fluid" ng-view ng-cloak></div>
+		<div class="container" ng-view ng-cloak></div>
 	</body>
 </html>

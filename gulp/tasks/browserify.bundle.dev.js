@@ -25,7 +25,15 @@ module.exports = function(opts) {
 
 	    w.on('update', function () {
 	        w.transform(babelify)
+	        	.on('error', function (err) {
+		            console.log(err.toString());
+		            this.emit("end");
+		        })
 	        	.bundle()
+	        	.on('error', function (err) {
+		            console.log(err.toString());
+		            this.emit("end");
+		        })
 	            .pipe(source(opts.source))
 	            .pipe(gulp.dest(opts.dest))
 	            .pipe(browserSync.reload({
@@ -35,6 +43,10 @@ module.exports = function(opts) {
 
 	    return 	b.transform(babelify)
 		    		.bundle()
+		    		.on('error', function (err) {
+			            console.log(err.toString());
+			            this.emit("end");
+			        })
 		        	.pipe(source(opts.source))
 		        	.pipe(gulp.dest(opts.dest));
 	});

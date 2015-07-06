@@ -1,1 +1,33 @@
-Formular de autentificare
+<div class="login-directive">
+
+	<form name="loginForm" novalidate>
+		
+		<div class="form-group" ng-class="{'has-error': loginForm.email.$invalid && (loginForm.email.$touched || loginForm.$submitted)}"> 
+			<label for="email">Adresa de email*</label>
+			<input class="form-control" type="email" name="email" autocomplete="email"
+				ng-model="fields.name"
+				required>
+			
+			<div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched || loginForm.$submitted">
+				<p ng-message="required">Nu ai completat adresa de email.</p>
+				<p ng-message="email">Formatul adresei de email este invalid.</p>
+			</div>
+		</div>   
+		
+		<div class="form-group" ng-class="{'has-error': loginForm.password.$invalid && (loginForm.password.$touched || loginForm.$submitted)}">
+			<label for="password">Parola</label>
+			<input class="form-control" type="password" name="password" autocomplete="password"
+				ng-model="fields.password"
+				required>
+			
+			<div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched || loginForm.$submitted">
+				<p ng-message="required">Nu ai completat parola.</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+	    	<button type="submit" class="btn" ng-click="formSubmit(loginForm)">Autentifica-te</button>
+	    </div>
+
+	</form>
+</div>

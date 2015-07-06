@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    gulpSequence = require('gulp-sequence');
 
 /**
  *  --- Settings --- 
@@ -12,6 +13,8 @@ var tasksPath = './gulp/tasks',
         'angular',
         'angular-route',
         'angular-resource',
+        'angular-messages',
+        'ngstorage',
         'jquery'
     ];
 
@@ -71,11 +74,7 @@ require(tasksPath+'/templateCache.js')({
     'dest': basePath+'/app'
 });
 
-/**
- *  --- Dev --- 
- */
-
-gulp.task('dev', ['templateCache', 'browserifyVendorDev', 'browserifyBundleDev', 'less', 'browserSync'], function() {
+gulp.task('watch', function() {
     
     gulp.watch(basePath+'/index.html', browserSync.reload);
     
@@ -92,6 +91,17 @@ gulp.task('dev', ['templateCache', 'browserifyVendorDev', 'browserifyBundleDev',
         }).pipe(browserSync.stream());
     });
 });
+
+/**
+ *  --- Dev --- 
+ */
+
+gulp.task('dev', gulpSequence(
+    ['templateCache', 'less'], 
+    ['browserifyVendorDev', 'browserifyBundleDev'], 
+    ['browserSync'],
+    ['watch']
+));
 
 /**
  *  --- Test --- 

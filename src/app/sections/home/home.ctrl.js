@@ -6,7 +6,7 @@
  
 'use strict';
 
-module.exports = ['$scope', '$location', 'EntityResource', function ($scope, $location, EntityResource) {
+module.exports = ['$scope', '$location', 'EntityResource', 'SessionServ', function ($scope, $location, EntityResource, SessionServ) {
 
 	/**
 	 *	Get the entities.
@@ -27,7 +27,10 @@ module.exports = ['$scope', '$location', 'EntityResource', function ($scope, $lo
 	 */
 
 	this.connectToEntity = function (entityId) {
-		$location.path('/connect');
+	};
+
+	this.viewEntityDetails = function (entityId) {
+		$location.path('/details');
 	};
  
 	EntityResource.getEntities().$promise.then(this.handleSuccess, this.handleError); 

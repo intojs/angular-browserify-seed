@@ -1,1 +1,33 @@
-formular de signup
+<div class="signup-directive">
+
+	<form name="signupForm" novalidate>
+		
+		<div class="form-group" ng-class="{'has-error': signupForm.email.$invalid && (signupForm.email.$touched || signupForm.$submitted)}"> 
+			<label for="email">Adresa de email*</label>
+			<input class="form-control" type="email" name="email" autocomplete="email"
+				ng-model="fields.name"
+				required>
+			
+			<div class="help-block" ng-messages="signupForm.email.$error" ng-if="signupForm.email.$touched || signupForm.$submitted">
+				<p ng-message="required">Nu ai completat adresa de email.</p>
+				<p ng-message="email">Formatul adresei de email este invalid.</p>
+			</div>
+		</div>   
+		
+		<div class="form-group" ng-class="{'has-error': signupForm.password.$invalid && (signupForm.password.$touched || signupForm.$submitted)}">
+			<label for="password">Parola*</label>
+			<input class="form-control" type="password" name="password" autocomplete="password"
+				ng-model="fields.password"
+				required>
+			
+			<div class="help-block" ng-messages="signupForm.password.$error" ng-if="signupForm.password.$touched || signupForm.$submitted">
+				<p ng-message="required">Nu ai completat parola.</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+	    	<button type="submit" class="btn" ng-click="formSubmit(signupForm)">Inregistreaza-te</button>
+	    </div>
+
+	</form>
+</div>
