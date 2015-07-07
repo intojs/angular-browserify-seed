@@ -1,7 +1,7 @@
 module.exports = function () {
 	return {
 		restrict: 'E',
-		scope: {
+		scope: { 
 		},
 		templateUrl: 'app/sections/auth/components/login/login.tpl.html',
 		controller: ['$scope', '$location', 'AuthServ', function($scope, $location, AuthServ) {
