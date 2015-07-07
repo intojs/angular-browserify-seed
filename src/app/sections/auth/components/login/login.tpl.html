@@ -5,9 +5,8 @@
 		<div class="form-group" ng-class="{'has-error': loginForm.email.$invalid && (loginForm.email.$touched || loginForm.$submitted)}"> 
 			<label for="email">Adresa de email*</label>
 			<input class="form-control" type="email" name="email" autocomplete="email"
-				ng-model="fields.name"
+				ng-model="fields.email"
 				required>
-			
 			<div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched || loginForm.$submitted">
 				<p ng-message="required">Nu ai completat adresa de email.</p>
 				<p ng-message="email">Formatul adresei de email este invalid.</p>
@@ -19,7 +18,6 @@
 			<input class="form-control" type="password" name="password" autocomplete="password"
 				ng-model="fields.password"
 				required>
-			
 			<div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched || loginForm.$submitted">
 				<p ng-message="required">Nu ai completat parola.</p>
 			</div>

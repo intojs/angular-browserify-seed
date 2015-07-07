@@ -4,7 +4,7 @@ module.exports = function () {
 		scope: {
 		},
 		templateUrl: 'app/sections/auth/components/login/login.tpl.html',
-		controller: ['$scope', '$location', function($scope, $location) {
+		controller: ['$scope', '$location', 'AuthServ', function($scope, $location, AuthServ) {
 			
 			$scope.fields = {};
 
@@ -12,7 +12,12 @@ module.exports = function () {
 
 				if (form.$invalid) return;
 
-				$location.path('/dashboard')
+				AuthServ.login($scope.fields.email, $scope.fields.password).then(function(onFulfilled){
+					console.log(onFulfilled);
+					// $location.path('/dashboard')
+				}, function(onRejectedd) {
+					console.log(onRejectedd);
+				});
 			};
 		}]
 	};

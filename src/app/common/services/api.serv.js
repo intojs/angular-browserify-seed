@@ -9,7 +9,8 @@ module.exports = function () {
 	this.hostName = 'http://localhost:3000/ngApp';
 
 	this.urls = {
-		'entity': this.hostName+'/entity'
+		'entity': this.hostName+'/entity',
+		'login': this.hostName+'/login'
 	};
 
 	this.getUrl = function (url) {

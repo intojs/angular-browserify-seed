@@ -18,5 +18,6 @@ module.exports = angular.module('auth', [])
 	.controller('LoginCtrl', require('./login/login.ctrl'))
 	.controller('SignupCtrl', require('./signup/signup.ctrl'))
 	.service('SessionServ', require('./session.serv'))
+	.service('AuthServ', require('./auth.serv'))
 	.directive('loginForm', require('./components/login/login.directive'))
 	.directive('signupForm', require('./components/signup/signup.directive'));

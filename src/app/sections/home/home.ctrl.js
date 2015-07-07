@@ -33,5 +33,13 @@ module.exports = ['$scope', '$location', 'EntityResource', 'SessionServ', functi
 		$location.path('/details');
 	};
  
-	EntityResource.getEntities().$promise.then(this.handleSuccess, this.handleError); 
+	EntityResource.getEntities().$promise.then(this.handleSuccess, this.handleError);
+
+	/**
+	 *	Log into the application.
+	 */
+
+	this.login = function () {
+		$location.path('/login');
+	};
 }];

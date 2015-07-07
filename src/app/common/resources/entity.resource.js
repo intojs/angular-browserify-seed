@@ -4,14 +4,14 @@
 
 'use strict';
     
-module.exports = ['$resource', 'ApiService', function ($resource, ApiService) {
+module.exports = ['$resource', 'ApiServ', function ($resource, ApiServ) {
 
-    return $resource(ApiService.getUrl('entity')+'/:id', {
+    return $resource(ApiServ.getUrl('entity')+'/:id', {
         id: '@id'
     },{ 
         getEntities: {
             method: 'GET',
-            url: ApiService.getUrl('entity'),
+            url: ApiServ.getUrl('entity'),
             isArray: true
         }
 	});
